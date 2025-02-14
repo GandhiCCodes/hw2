@@ -184,7 +184,8 @@ tom_hardy = Actor.find_by({ "name" => "Tom Hardy" })
 joseph_gordon_levitt = Actor.find_by({ "name" => "Joseph Gordon-Levitt" })
 anne_hathaway = Actor.find_by({ "name" => "Anne Hathaway" })
 
-# Assign roles dynamically
+# Assign roles
+
 role = Role.new
 role["movie_id"] = batman_begins["id"]
 role["actor_id"] = christian_bale["id"]
@@ -287,9 +288,9 @@ puts "Movies"
 puts "======"
 puts ""
 
-movies = Movie.all
 
-for movie in movies
+
+for movie in Movie.all
   studio = Studio.find_by({ "id" => movie["studio_id"] }) 
   puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} + #{studio["name"]}"
 end
@@ -304,9 +305,9 @@ puts "Top Cast"
 puts "========"
 puts ""
 
-roles = Role.all
 
-for role in roles
+
+for role in Role.all
   movie = Movie.find_by({ "id" => role["movie_id"] }) 
   actor = Actor.find_by({ "id" => role["actor_id"] }) 
 
